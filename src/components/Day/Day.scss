@@ -1,0 +1,35 @@
+.day {
+  margin: 0 15px;
+  display: grid;
+  grid-template-rows: 40px auto;
+}
+
+.active-day {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: rgba(30, 58, 138, 1);
+  margin-left: 20px;
+}
+
+.day-color {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: rgba(156, 163, 175, 1);
+  letter-spacing: 0.05em;
+  margin-left: 20px;
+}
+
+.day-background {
+  padding-top: 33px;
+  background: linear-gradient(to bottom, #fff 96%, rgba(156, 163, 175, 1) 5%);
+  background-size: 100% 35px;
+  height: 100%;
+  margin-left: 20px;
+}
+
+.day-background.selected {
+  opacity: 0.5;
+}
