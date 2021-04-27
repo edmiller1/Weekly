@@ -3,7 +3,7 @@ import "./Calendar.scss";
 import { Day } from "../Day/Day";
 
 export const Calendar = () => {
-  const dayNames = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   return (
     <div className="calendar ml-10">
