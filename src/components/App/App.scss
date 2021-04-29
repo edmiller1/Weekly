@@ -1,3 +1,38 @@
+$color-background: #202124;
+$color-background-secondary: #292a2d;
+$color-light-text: #b3b3b3;
+$color-text: #fff;
+$color-stripes: #585858;
+
+body.dark-mode {
+  background-color: $color-background;
+  color: $color-light-text;
+  .sidebar {
+    background-color: $color-background-secondary;
+  }
+  .active-day {
+    color: $color-text;
+  }
+  .day-background {
+    padding-top: 33px;
+    background: linear-gradient(
+      to bottom,
+      $color-background 96%,
+      rgba(156, 163, 175, 1) 5%
+    );
+    background-size: 100% 35px;
+    height: 100%;
+    margin-left: 20px;
+  }
+  .task-input {
+    background: $color-background-secondary;
+    color: $color-text;
+  }
+  .sidebar-text {
+    color: rgba(59, 130, 246, 1);
+  }
+}
+
 .calendar-header {
   display: grid;
   grid-template-rows: 80px auto;

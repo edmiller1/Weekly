@@ -16,7 +16,7 @@ function App() {
     <div className="App text-gray-600 overflow-hidden min-h-screen">
       <div className="container">
         <div>
-          <Sidebar tasks={tasks} />
+          <Sidebar tasks={tasks} setTasks={setTasks} />
         </div>
         <main className="calendar-header">
           <Header
