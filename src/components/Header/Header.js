@@ -1,31 +1,22 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 import { ThemeChange } from "../ThemeChange/ThemeChange";
+import { useInput } from "../../Hooks/useInput";
 
-export const Header = ({ tasks, setTasks, input, setInput, randomColor }) => {
-  const addTask = (e) => {
-    const task = { id: uuidv4(), text: input, color: randomColor };
-    tasks.push(task);
-    setTasks(tasks);
-    setInput("");
-  };
-
-  const removeAllTasks = () => {
-    setTasks([]);
-  };
+export const Header = ({ addNewTask, removeAllTasks }) => {
+  const { input, onChangeInput, onSubmitInput } = useInput();
 
   return (
     <div className="ml-10 mr-5 flex justify-between items-center">
       <div className="flex">
         <input
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={onChangeInput}
           type="text"
           placeholder="Add new item..."
           className="task-input py-3 px-3 rounded-full bg-gray-100 w-96 font-extrabold text-xl focus:outline-none text-gray-600"
         />
         <button
-          onClick={() => addTask()}
+          onClick={() => onSubmitInput(addNewTask)}
           className="task-input ml-5 text-gray-400 bg-gray-100 px-4 rounded-xl text-4xl hover:text-gray-600 hover:bg-gray-300 transition duration-300 focus:outline-none"
         >
           +

@@ -1,11 +1,8 @@
 import React from "react";
+import { Task } from "../Task/Task";
 
-export const Sidebar = ({ tasks, setTasks }) => {
-  const removeTask = (id) => {
-    console.log(id);
-    let newTasks = tasks.filter((task) => task.id !== id);
-    setTasks(newTasks);
-  };
+export const Sidebar = (props) => {
+  const { tasks, changeTaskTag, removeTask } = props;
 
   return (
     <div className="sidebar bg-gray-100 min-h-screen">
@@ -15,17 +12,7 @@ export const Sidebar = ({ tasks, setTasks }) => {
       <div>
         <div className="flex flex-col">
           {tasks.map((task) => (
-            <div
-              style={{ backgroundColor: task.color }}
-              key={task.id}
-              className="border border-gray-200 mx-5 pl-3 py-2 rounded-3xl break-words mb-3"
-            >
-              <span className="font-bold text-gray-600">{task.text}</span>
-              <i
-                className="fas fa-times cursor-pointer float-right pr-4 pt-1 flex items-center"
-                onClick={() => removeTask(task.id)}
-              ></i>
-            </div>
+            <Task task={task} removeTask={removeTask} key={task.id} />
           ))}
         </div>
       </div>
