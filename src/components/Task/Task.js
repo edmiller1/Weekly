@@ -8,17 +8,20 @@ export const Task = (props) => {
 
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.TASK,
+    item: {
+      id: id,
+      text: props.task.text,
+      tag: tag,
+    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
-    //canDrag: () => !isEditMode,
   });
 
   return (
     <div
       style={{ backgroundColor: props.task.color }}
-      key={props.task.id}
-      className={"task " + (isDragging ? " selected" : "")}
+      className={"task " + props.task.color + (isDragging ? " selected" : "")}
       ref={drag}
     >
       <span className="font-bold text-gray-600 cursor-default">
@@ -26,7 +29,7 @@ export const Task = (props) => {
       </span>
       <i
         className="fas fa-times delete-button cursor-pointer"
-        onClick={() => props.removeTask(props.task.id)}
+        onClick={() => props.removeTask(id)}
       ></i>
     </div>
   );

@@ -5,6 +5,16 @@ import { randomColor } from "../util/randomColor";
 function useTasks() {
   //State
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) setTasks(JSON.parse(storedTasks));
+  }, []);
+
+  useEffect(() => {
+    persistTasksToStorage(tasks);
+  }, [tasks]);
+
   //Functions
 
   const addNewTask = (newTaskInput) => {
@@ -31,6 +41,10 @@ function useTasks() {
 
   const removeAllTasks = () => {
     setTasks([]);
+  };
+
+  const persistTasksToStorage = (tasks) => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
   return {
