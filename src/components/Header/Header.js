@@ -1,9 +1,9 @@
 import React from "react";
 import { ThemeChange } from "../ThemeChange/ThemeChange";
-import { useInput } from "../../Hooks/useInput";
+import { useInput } from "../../Hooks/hooks";
 
 export const Header = ({ addNewTask, removeAllTasks }) => {
-  const { input, onChangeInput, onSubmitInput } = useInput();
+  const { input, onChangeInput, onSubmitInput } = useInput("");
 
   return (
     <div className="ml-10 mr-5 flex justify-between items-center">
@@ -17,6 +17,7 @@ export const Header = ({ addNewTask, removeAllTasks }) => {
         />
         <button
           onClick={() => onSubmitInput(addNewTask)}
+          disabled={!input}
           className="task-input ml-5 text-gray-400 bg-gray-100 px-4 rounded-xl text-4xl hover:text-gray-600 hover:bg-gray-300 transition duration-300 focus:outline-none"
         >
           +

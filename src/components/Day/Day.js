@@ -5,9 +5,17 @@ import { ItemTypes } from "../../util/types";
 import { Task } from "../Task/Task";
 
 export const Day = (props) => {
-  const { name, dayIndex, tasks, removeTask, changeTaskTag } = props;
+  const {
+    name,
+    dayIndex,
+    tasks,
+    removeTask,
+    changeTaskTag,
+    setTasks,
+    sayHello,
+  } = props;
 
-  const [isOver, drop] = useDrop({
+  const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.TASK,
     drop: (item) => changeTaskTag(item.id, name),
     collect: (monitor) => ({
@@ -24,7 +32,14 @@ export const Day = (props) => {
       <h1 className={isActiveDay() ? "active-day" : "day-color"}>{name}</h1>
       <div className={isOver ? "day-background selected" : "day-background"}>
         {tasks.map((task) => (
-          <Task task={task} removeTask={removeTask} key={task.id} />
+          <Task
+            task={task}
+            removeTask={removeTask}
+            key={task.id}
+            tasks={tasks}
+            setTasks={setTasks}
+            sayHello={sayHello}
+          />
         ))}
       </div>
     </div>

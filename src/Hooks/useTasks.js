@@ -35,8 +35,7 @@ function useTasks() {
   };
 
   const removeTask = (id) => {
-    let newTasks = tasks.filter((task) => task.id !== id);
-    setTasks(newTasks);
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   const removeAllTasks = () => {
@@ -47,12 +46,19 @@ function useTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
+  const sayHello = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+    //console.log("Hello " + id);
+  };
+
   return {
     tasks,
     changeTaskTag,
     removeTask,
     removeAllTasks,
     addNewTask,
+    setTasks,
+    sayHello,
   };
 }
 

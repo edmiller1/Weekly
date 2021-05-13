@@ -4,7 +4,7 @@ import { useDrop } from "react-dnd";
 import { ItemTypes } from "../../util/types";
 
 export const Sidebar = (props) => {
-  const { tasks, changeTaskTag, removeTask } = props;
+  const { tasks, setTasks, changeTaskTag, removeTask } = props;
 
   const [, drop] = useDrop({
     accept: ItemTypes.TASK,
@@ -16,15 +16,17 @@ export const Sidebar = (props) => {
       <h1 className="sidebar-text flex justify-center text-4xl py-3 font-bold tracking-wider text-blue-900 mb-10 pt-5">
         Weekly
       </h1>
-      <div>
-        <div className="flex flex-col">
-          {tasks.map((task) => {
-            return task.tag === "QUEUE" ? (
-              <Task task={task} removeTask={removeTask} key={task.id} />
-            ) : null;
-          })}
-        </div>
-      </div>
+      {tasks.map((task) => {
+        return task.tag === "QUEUE" ? (
+          <Task
+            task={task}
+            removeTask={removeTask}
+            key={task.id}
+            tasks={tasks}
+            setTasks={setTasks}
+          />
+        ) : null;
+      })}
     </div>
   );
 };

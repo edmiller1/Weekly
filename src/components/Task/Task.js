@@ -21,16 +21,18 @@ export const Task = (props) => {
   return (
     <div
       style={{ backgroundColor: props.task.color }}
-      className={"task " + props.task.color + (isDragging ? " selected" : "")}
+      className={"task " + (isDragging ? " selected" : "")}
       ref={drag}
     >
-      <span className="font-bold text-gray-600 cursor-default">
+      <p className="font-bold text-gray-600 cursor-default">
         {props.task.text}
-      </span>
-      <i
-        className="fas fa-times delete-button cursor-pointer"
+      </p>
+      <button
+        className="focus:outline-none"
         onClick={() => props.removeTask(id)}
-      ></i>
+      >
+        <i className="fas fa-times delete-button cursor-pointer"></i>
+      </button>
     </div>
   );
 };
