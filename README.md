@@ -1,3 +1,14 @@
+# Weekly
+
+Plan your week ahead with ease.
+
+![](weekly.gif)
+
+# Built with:
+  * [React](https://reactjs.org/)
+  * [Tailwind CSS](https://tailwindcss.com/)
+  * [Sass](https://sass-lang.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
