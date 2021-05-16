@@ -2,7 +2,7 @@
 
 Plan your week ahead with ease.
 
-![](weekly.gif)
+![Weekly Gif](https://github.com/edmiller1/Weekly/blob/master/Weekly.gif)
 
 # Built with:
   * [React](https://reactjs.org/)
